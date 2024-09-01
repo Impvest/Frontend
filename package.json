@@ -1,24 +1,33 @@
 {
-  "name": "frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Impvest/Frontend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Impvest/Frontend/issues"
-  },
-  "homepage": "https://github.com/Impvest/Frontend#readme",
   "dependencies": {
+    "@parcel/transformer-postcss": "^2.12.0",
+    "parcel": "^2.12.0",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "postcss-loader": "^8.1.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.1",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
+  },
+  "source": "src/index.html",
+  "scripts": {
+    "clean-dist": "rm -rf dist && mkdir dist",
+    "copy-img": "cp -vR ./src/img ./dist",
+    "copy-data": "cp -r src/data.json dist",
+    "copy-assets": "cp -r src/assets/* dist",
+    "copy-files": "npm run copy-img & npm run copy-assets & npm run copy-data",
+    "init": "npm run clean-dist && npm run copy-files",
+    "start": "npm run init && parcel",
+    "build": "npm run init && parcel build"
   }
 }

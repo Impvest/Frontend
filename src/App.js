@@ -1,11 +1,18 @@
-// App.js
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom'; // Import Router
+import Navbar from './components/Navbar';
+import RoutesConfig from './Routes'; // Ensure this matches the renamed file
+import Footer from './components/Footer';
+
+import './styles/global.css';
 
 function App() {
   return (
-    <div>
-      <h1>Hello, React with Parcel.js</h1>
-    </div>
+      <div>
+        <Navbar />
+        <RoutesConfig /> 
+        <Footer/>
+      </div>
   );
 }
 

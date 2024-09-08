@@ -1,3 +1,88 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .font-lineRg {
+    font-family: 'LineRg', sans-serif;
+  }
+  .font-lineBold {
+    font-family: 'LineBold', sans-serif;
+  }
+  .text-16px {
+    font-size: 16px;
+  }
+  .text-24px {
+    font-size: 24px;
+  }
+  .leading-24px {
+    line-height: 24px;
+  }
+}
+
+@font-face {
+    font-family: 'LineBold'; /* Define the name for the font */
+    src: url('../../public/font/LINESeedSansTH_A_Bd.ttf') format('truetype'); /* URL to the font file */
+    font-weight: '700';
+  }
+@font-face {
+    font-family: 'LineRg'; /* Define the name for the font */
+    src: url('../../public/font/LINESeedSansTH_A_Rg.ttf') format('truetype'); 
+    font-weight: '400';
+  }
+  :root {
+    --green-color: rgba(16, 91, 76, 1);
+  }
+  
+  /* Use the color in other styles if needed */
+  .green-text {
+    color: var(--green-color);
+  }
+  
+body {
+  font-family: 'LineRg';
+}
+/* nav bar */
+.commonHamburgerStyle{
+    border-top: 5px solid #000;
+    height:0px;
+    width: 40px;
+    border-radius: 10px;
+}
+
+.Intro {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.64) 24.5%, rgba(255, 255, 255, 0.70) 74.5%);
+}
+/* import Background from ""; */
+/* @media (max-width: 1024px) {
+  .Intro {
+    padding-top: 150px;
+    padding-left: 20px;
+    padding-right: 8px;
+  }
+}
+
+/* For small screens (mobile) */
+/* @media (max-width: 768px) {
+  .Intro {
+    padding-top: 312px;
+    padding-left: 117px;
+    padding-right: 5px;
+  }
+} */
+.Intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../public/images/homeBackground.svg'); /* Update with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(0.55px); /* Apply blur to the background image */
+  z-index: -1; /* Ensure it's behind the content */
+}
+.swiper-slide { width: auto; }

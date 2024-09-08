@@ -12,11 +12,14 @@ const currentPath = location.pathname;
   if (!isOpen) return null;
 
   return (
-    <div className="dropdown-box" style={{ position: 'absolute', top: '70px', marginLeft:'auto',width:'250px', background: '#fff',  padding: '20 40 20 40', display:'flex',flexDirection:'column',alignItems:'center'}}>
-      <ul style={{ listStyleType: 'none', padding: '0', margin: '0', gap:'20px'}}>
-        <li><a href="/profile" style={{color: currentPath=== '/profile'  ? 'green' : 'black'}}>Profile</a></li>
-        <li><a href="/profile">Profile</a></li>
-      </ul>
+    <div className={`absolute top-[60px] right-0 w-[185px] md:w-[253px] bg-white p-[12px_26px] md:px-[38px] md:py-[22px] flex flex-col gap-2.5 z-50 text-[16px] md:text-lg`}>
+      <a href="/aboutUs" style={{color: currentPath=== '/aboutUs'  ? 'green' : 'black'}}>Profile</a>
+      <a href="/consulting" style={{color: currentPath=== '/consulting'  ? 'green' : 'black'}}>Consulting</a>
+      <a href="/academy" style={{color: currentPath=== '/academy'  ? 'green' : 'black'}}>Accademy</a>
+      <a href="/innovation" style={{color: currentPath=== '/innovation'  ? 'green' : 'black'}}>Innovation</a>
+      <a href="/contactUs" style={{color: currentPath=== '/contactUs'  ? 'green' : 'black'}}>Contact Us</a>
+      <a href="/signIn" style={{color: currentPath=== '/signIn'  ? 'green' : 'black'}}>Sign in</a>
+
     </div>
   );
 };

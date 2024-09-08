@@ -1,7 +1,8 @@
-import React from 'react';
-import '../styles/global.css';
-import mockData, { getDataByIndex } from './mockData';
+import React from "react";
+import "../styles/global.css";
+import mockData, { getDataByIndex } from "./mockData";
 import latestWorkImage from "../../public/images/latestWork1.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface LatestWorkCardProps {
   index: number;
@@ -9,35 +10,32 @@ interface LatestWorkCardProps {
 const departments = ["Innovation", "Academy", "Consulting"];
 
 const LatestWorkCard: React.FC<LatestWorkCardProps> = ({ index }) => {
-  const data = getDataByIndex(index)
+  const data = getDataByIndex(index);
 
   if (!data) {
-    return <div>No data found</div>; 
+    return <div>No data found</div>;
   }
-  console.log(data.picturePath)
+  console.log(data.picturePath);
 
-  return (      
-      <div className="work-card" style={{gap:'14px', width: "150px", height: "275px", display: 'flex', flexDirection: 'column',border: '1px solid #ccc'}}>
-          <img
+  return (
+    <SwiperSlide>
+      <div className=" w-[150px] md:w-[200px] lg:w-[255px] block rounded-lg overflow-hidden">
+        <img
           src={latestWorkImage}
           alt="Impvest"
-          style={{ width: '100%' }}
+          className="w-max rounded-[25px]"
         />
-          {/* <div style={{ width: '100%', height: '150px', border: '1px solid black' }} /> */}
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <div style={{ textAlign: 'left', fontSize: '9px', fontStyle: 'normal', fontWeight: '400' }}>
-              {departments[data.departmentId]}
-            </div>
-            <div style={{ textAlign: 'left', fontSize: '16px', fontStyle: 'normal', fontWeight: '700' }}>
-              {data.topic}
-            </div>
+        <div className="flex flex-col md:mt-3">
+          <div className="text-xs lg:text-base font-LineRg leading-[9px]">
+            {departments[data.departmentId]}
           </div>
-
-          <div style={{ textAlign: 'left', fontSize: '10px', fontStyle: 'normal', fontWeight: '400', lineHeight: '12px' }}>
+          <div className="mt-2 text-base md:text-xl lg:text-3xl font-LineBold leading-none md:leading-tight lg:leading-[30px]">{data.topic}</div>
+          <div className="mt-3.5 md:mt-6 text-[10px] lg:text-xl md:text-base font-LineRg leading-3 md:leading-[18px] text-[#707070]">
             {data.detail}
           </div>
+        </div>
       </div>
+    </SwiperSlide>
   );
 };
 
